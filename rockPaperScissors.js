@@ -18,15 +18,6 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-/*
-step 5 instructions
-make humanChoice case-insensitive
-write playRound code so console populates string saying who wins
-increment human/computer score accordingly
-
-
-*/
-
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     console.log(`You choose ${humanChoice}`);
@@ -46,12 +37,31 @@ function playRound(humanChoice, computerChoice) {
         console.log(`You lost - ${computerChoice} beats ${humanChoice}`);
         computerScore++;
     }
-    console.log(`Your score: ${humanScore}`)
-    console.log(`Conmputer score: ${computerScore}`)
-
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+function newSelection() {
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+}
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound(humanSelection, computerSelection);
+        console.log(`Round ${i + 1} - Human ${humanScore} | Computer ${computerScore}`)
+        if (i < 4) {newSelection();
+        } else {
+            if (humanScore === computerScore) {
+                console.log("After five round, we end with a draw");
+            } else if (humanScore > computerScore) {
+                console.log(`After five rounds, you are the overall winner, ${humanScore} vs ${computerScore}`);
+            } else {
+                console.log(`After five rounds, Computer is the overall winner, ${computerScore} vs ${humanScore}`)    
+            }
+        }
+    }
+}
+
+playGame()
