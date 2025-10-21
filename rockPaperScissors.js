@@ -29,12 +29,21 @@ increment human/computer score accordingly
 
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
-    console.log(humanChoice);
-    console.log(computerChoice);
+    console.log(`You choose ${humanChoice}`);
+    console.log(`Computer chooses ${computerChoice}`);
+    if (humanChoice === computerChoice) {
+        console.log(`Tie - you both chose ${humanChoice}`)
+    } else if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log(`You win - ${humanChoice} beats ${computerChoice}`)
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+        console.log(`You win - ${humanChoice} beats ${computerChoice}`)
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        console.log(`You win - ${humanChoice} beats ${computerChoice}`)
+    } else {console.log(`You lost - ${computerChoice} beats ${humanChoice}`)
+    }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
-
