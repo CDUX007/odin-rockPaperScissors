@@ -1,12 +1,5 @@
-/* 
-function to generate number between 0 - 2
- convert number to String
- return string to computerChoice
-*/
-
 function getComputerChoice() {
     const convertNumber = Math.floor(Math.random() * 3);
-    // console.log(convertNumber)
     switch (convertNumber) {
         case 0:
             return "rock";
@@ -17,15 +10,6 @@ function getComputerChoice() {
     }
 }
 
-/* 
-Return a valid choice based on users input
-Use prompt
-Assume user ALWAYS enters a valid choice
-Test function
-
-prompt user to choose rock paper or scissors
-*/
-
 function getHumanChoice() {
     const humanChoice = prompt ("Choose rock, paper, or scissors");
     return humanChoice;
@@ -34,7 +18,23 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
+/*
+step 5 instructions
+make humanChoice case-insensitive
+write playRound code so console populates string saying who wins
+increment human/computer score accordingly
 
-console.log(getHumanChoice());
 
+*/
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    console.log(humanChoice);
+    console.log(computerChoice);
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
